@@ -1,20 +1,17 @@
 import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Vegetable } from "../../../Interfaces/Interfaces";
+import { EProducts } from "../../../Interfaces/Interfaces";
 import { addToCart } from "../../../redux/slices/shopSlice";
 import { RootState } from "../../../redux/store/store";
 
 interface IProps {
   showModal: boolean;
   setShowModal: Function;
-  vegetable: Vegetable;
+  product: EProducts;
 }
-const KachaBazarModal: FC<IProps> = ({
-  showModal,
-  setShowModal,
-  vegetable,
-}) => {
+
+const EShopModal: FC<IProps> = ({ showModal, setShowModal, product }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.shop.cart);
   return (
@@ -27,9 +24,7 @@ const KachaBazarModal: FC<IProps> = ({
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">
-                    {vegetable.productName}
-                  </h3>
+                  <h3 className="text-3xl font-semibold">{product.name}</h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black  float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
@@ -43,15 +38,29 @@ const KachaBazarModal: FC<IProps> = ({
                   <h1 className="text-4xl">
                     Cost:{" "}
                     <span className=" text-orange-500">
-                      {vegetable.price}TK{" "}
+                      &#36;{product.price}
                     </span>
                     <span className="text-sm">Only</span>
                   </h1>
+                  <div>
+                    <h1>
+                      {product.features[0]?.description || ""} :{" "}
+                      {product.features[0]?.value || ""}
+                    </h1>
+                    <h1>
+                      {product.features[1]?.description || ""} :{" "}
+                      {product.features[1]?.value || ""}
+                    </h1>
+                  </div>
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    {vegetable.productDescription}
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    optio voluptates temporibus illum eligendi commodi nulla vel
+                    minus in, quaerat quae cupiditate quod alias excepturi
+                    voluptas numquam dolor itaque quis aliquam soluta libero
+                    natus placeat quidem. Iste molestias voluptate enim.
                   </p>
                 </div>
                 {/*footer*/}
@@ -63,7 +72,8 @@ const KachaBazarModal: FC<IProps> = ({
                   >
                     Close
                   </button>
-                  {cartItems.find((item) => item.id === vegetable._id) ? (
+
+                  {cartItems.find((item) => item.id === product._id) ? (
                     <Link
                       to="/cart"
                       className="text-xl font-bold hover:text-blue-600"
@@ -77,11 +87,11 @@ const KachaBazarModal: FC<IProps> = ({
                       onClick={() => {
                         dispatch(
                           addToCart({
-                            id: vegetable._id,
-                            d: "kacha_bazer",
-                            c: "products",
+                            id: product._id,
+                            d: "online_shop",
+                            c: "productCollection",
                             quantity: 1,
-                            price: vegetable.price,
+                            price: product.price,
                           })
                         );
                         setShowModal(false);
@@ -101,4 +111,4 @@ const KachaBazarModal: FC<IProps> = ({
   );
 };
 
-export default KachaBazarModal;
+export default EShopModal;

@@ -1,12 +1,18 @@
 import { FC, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import useFirebase from "../../../hooks/useFirebase";
+import { RootState } from "../../../redux/store/store";
 
 const Navbar: FC = () => {
   const [showItem, setShowItem] = useState(false);
+  const user = useSelector((state: RootState) => state.users.user);
+  const cartItem = useSelector((state: RootState) => state.shop.cart);
+  const { logOut } = useFirebase();
   return (
     <div className="bg-blue-500 sticky top-0 z-20 py-6">
       <nav className="flex items-center justify-between flex-wrap container m-auto">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <div className="flex mx-2 items-center flex-shrink-0 text-white mr-6">
           <svg
             className="fill-current h-8 w-8 mr-2"
             width="54"
@@ -16,14 +22,12 @@ const Navbar: FC = () => {
           >
             <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
           </svg>
-          <span className="font-semibold text-xl tracking-tight">
-            Tailwind CSS
-          </span>
+          <span className="font-semibold text-xl tracking-tight">E-SHOP</span>
         </div>
         <div className="block lg:hidden">
           <button
             onClick={() => setShowItem(!showItem)}
-            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+            className="flex mr-3 items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
           >
             <svg
               className="fill-current h-3 w-3"
@@ -41,7 +45,7 @@ const Navbar: FC = () => {
             showItem === true ? "block" : "hidden"
           } flex-grow lg:flex lg:items-center lg:w-auto`}
         >
-          <div className="text-sm lg:flex-grow">
+          <div className="text-sm mx-3 lg:flex-grow">
             <Link
               to="/"
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
@@ -49,10 +53,34 @@ const Navbar: FC = () => {
               Home
             </Link>
             <Link
-              to="/places"
+              to="/bd-places"
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
             >
-              Places
+              Bangladesh Tour
+            </Link>
+            <Link
+              to="/wd-places"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+            >
+              World Tour
+            </Link>
+            <Link
+              to="/vegetables"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+            >
+              Kacha Bazar
+            </Link>
+            <Link
+              to="/bikes"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+            >
+              Bike Bazar
+            </Link>
+            <Link
+              to="/electronics"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+            >
+              Electronics
             </Link>
             <Link
               to="about"
@@ -61,13 +89,30 @@ const Navbar: FC = () => {
               About
             </Link>
           </div>
-          <div>
-            <Link
-              to="/login"
-              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-            >
-              Login
-            </Link>
+          <div className="flex">
+            <div>
+              <Link to="/cart">
+                <i className="fas fa-shopping-cart text-3xl"></i>
+                <span className="bg-red-700 rounded-full inline-block p-2 text-white">
+                  {cartItem.length}
+                </span>
+              </Link>
+            </div>
+            {user.email ? (
+              <button
+                onClick={logOut}
+                className="inline-block mx-2 text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 bg-red-700 hover:bg-white mt-4 lg:mt-0"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="inline-block mx-2 text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </nav>

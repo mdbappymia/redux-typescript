@@ -6,7 +6,7 @@ const Services = () => {
       <h1 className="text-center text-6xl font-bold my-7 py-5 uppercase border-b">
         Services
       </h1>
-      <div className="grid grid-cols-3 gap-5 py-5 border-b">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5 py-5 border-b">
         {services.map((service, i) => (
           <div
             key={i}

@@ -5,19 +5,13 @@ interface PlaceProps {
   place: WorldPlace;
 }
 
-const SingleWorldPlaceHome: FC<PlaceProps> = ({ place }: PlaceProps) => {
+const SingleWorldPlaceHome: FC<PlaceProps> = ({ place }) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <div className="flex justify-center">
       <div className="rounded-lg shadow-lg bg-white max-w-sm">
         <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <img
-            className="rounded-t-lg"
-            src={
-              "https://media.istockphoto.com/photos/merlion-statue-picture-id627935066?k=20&m=627935066&s=612x612&w=0&h=AXIBPW688Dyqp1WA_3s2kI8tjMkakOJbdwWk0nPG_kk="
-            }
-            alt=""
-          />
+          <img className="rounded-t-lg" src={place.image} alt="" />
         </a>
         <div className="p-6 h-48">
           <h5 className="text-gray-900 text-xl font-medium mb-2">

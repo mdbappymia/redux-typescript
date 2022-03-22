@@ -25,3 +25,42 @@ export interface Vegetable {
   productImage: string;
   productDescription: string;
 }
+
+export interface Bike {
+  _id: string;
+  name: string;
+  img: string;
+  price: string;
+  description: string;
+}
+
+export interface EProducts {
+  _id: string;
+  key: string;
+  category: string;
+  name: string;
+  seller: string;
+  wholePrice: string;
+  priceFraction: string;
+  stock: number;
+  star: number;
+  starCount: number;
+  img: string;
+  url: string;
+  features: Feature[];
+  price: number;
+  shipping: number;
+}
+
+export interface Feature {
+  description: string;
+  value: string;
+}
+
+export interface ProductCart {
+  id?: string;
+  d?: string;
+  c?: string;
+  quantity: number;
+  price: string;
+}

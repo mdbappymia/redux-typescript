@@ -1,4 +1,9 @@
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store/store";
+
 const Header = () => {
+  const user = useSelector((state: RootState) => state.users.user);
+  console.log(user);
   return (
     <div className="container mx-auto">
       <div

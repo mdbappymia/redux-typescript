@@ -18,3 +18,7 @@ code {
 .carousel-item img {
   height: 40vh;
 }
+.initial-width {
+  width: 95%;
+  margin: auto;
+}
