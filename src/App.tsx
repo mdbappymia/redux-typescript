@@ -18,6 +18,7 @@ import KachaBazar from "./Pages/KachaBazar/KachaBazar";
 import BikeBazar from "./Pages/BikeBazar/BikeBazar";
 import Electronics from "./Pages/Electronics/Electronics";
 import CartRoot from "./Pages/Cart/CartRoot/CartRoot";
+import PlaceDetails from "./Pages/PlaceDetails/PlaceDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ function App() {
           <Route path="/bikes" element={<BikeBazar />} />
           <Route path="/electronics" element={<Electronics />} />
           <Route path="/cart" element={<CartRoot />} />
+          <Route path="/placeDetails/:id" element={<PlaceDetails />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>

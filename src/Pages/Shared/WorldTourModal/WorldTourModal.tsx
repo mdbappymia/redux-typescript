@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
 import { WorldPlace } from "../../../Interfaces/Interfaces";
 
 interface IProps {
@@ -54,13 +55,14 @@ const WorldTourModal: FC<IProps> = ({ showModal, setShowModal, place }) => {
                   >
                     Close
                   </button>
-                  <button
+                  <Link
+                    to={`/placeDetails/${place._id}__travel-adventures__places`}
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
                     Book Now
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
