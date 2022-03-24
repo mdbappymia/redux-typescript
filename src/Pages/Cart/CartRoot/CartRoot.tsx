@@ -15,12 +15,14 @@ const CartRoot: FC = () => {
         Cart
       </h1>
       <h1>Total : {calculateTotal(cartItems)} TK</h1>
-      <Link
-        to="/checkout"
-        className="bg-indigo-600 inline-block px-3 py-2 rounded text-white font-bold mt-2 uppercase"
-      >
-        proceed to checkout
-      </Link>
+      {cartItems.length > 0 && (
+        <Link
+          to="/checkout"
+          className="bg-indigo-600 inline-block px-3 py-2 rounded text-white font-bold mt-2 uppercase"
+        >
+          proceed to checkout
+        </Link>
+      )}
       <div className="cart-item-container">
         {cartItems.map((item: ProductCart) => (
           <SingleCartItem item={item} key={item.id} />

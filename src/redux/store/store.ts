@@ -2,6 +2,7 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import counterReducer from "../../features/counter/counterSlice";
 import authSlice from "../slices/authSlice";
 import bookingServiceSlice from "../slices/bookingServiceSlice";
+import orderSlice from "../slices/orderSlice";
 import placeReducer from "../slices/placeSlice";
 import shopSlice from "../slices/shopSlice";
 
@@ -23,6 +24,7 @@ export const store = configureStore({
     shop: shopSlice,
     users: authSlice,
     booking: bookingServiceSlice,
+    orders: orderSlice,
   },
 });
 

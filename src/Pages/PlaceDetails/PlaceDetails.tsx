@@ -2,7 +2,7 @@
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { RootState } from "../../redux/store/store";
 
 const PlaceDetails: FC = () => {
@@ -12,6 +12,7 @@ const PlaceDetails: FC = () => {
   const { id } = useParams();
   const newData: Array<string> | any = id?.split("__");
   const totalPrice = displayPlace.price * parseInt(pack);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(
       `http://localhost:5000/random?d=${newData[1]}&c=${newData[2]}&id=${newData[0]}`
@@ -54,6 +55,7 @@ const PlaceDetails: FC = () => {
           if (result.acknowledged) {
             alert("Data added successfully");
             reset();
+            navigate("/dashboard");
           }
         });
     }
@@ -125,7 +127,7 @@ const PlaceDetails: FC = () => {
             {errors.exampleRequired && <span>This field is required</span>}
 
             <input
-              className="bg-indigo-700 text-white font-bold px-3 py-2 rounded"
+              className="bg-indigo-700 text-white font-bold px-3 py-2 rounded cursor-pointer hover:bg-indigo-600"
               type="submit"
             />
           </form>

@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { BookedService } from "../../../Interfaces/Interfaces";
 import { cancleOrder } from "../../../redux/slices/bookingServiceSlice";
+import PaymentModal from "../../Shared/PaymentModal/PaymentModal";
 
 interface IProps {
   booking: BookedService;
@@ -9,6 +10,7 @@ interface IProps {
 
 const SingleBookedService: FC<IProps> = ({ booking }) => {
   const [singlePlace, setSinglePlace] = useState<any>({});
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const { order_id, c, d, pack, status, payment_status, address, _id } =
     booking;
@@ -55,8 +57,26 @@ const SingleBookedService: FC<IProps> = ({ booking }) => {
         <h1>Cost : {parseInt(pack) * singlePlace.price}$</h1>
         <h1>Duration: {duration}</h1>
         <h1>Status : {status}</h1>
-        <h1>Payment Status : {payment_status}</h1>
+        <h1>
+          Payment Status :{" "}
+          <span
+            className={
+              payment_status === "Unpaid"
+                ? "text-red-600 font-bold"
+                : "text-green-600 font-bold"
+            }
+          >
+            {payment_status}
+          </span>
+        </h1>
         <h1>Starting address : {address}</h1>
+        <button
+          onClick={() => setShowModal(true)}
+          disabled={payment_status !== "Unpaid"}
+          className=" bg-green-600 px-3 py-2 my-2 text-white rounded hover:bg-green-700 font-bold disabled:bg-gray-400"
+        >
+          Make Payment
+        </button>
       </div>
       <div>
         <button
@@ -66,6 +86,7 @@ const SingleBookedService: FC<IProps> = ({ booking }) => {
           Cancle
         </button>
       </div>
+      <PaymentModal showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 };

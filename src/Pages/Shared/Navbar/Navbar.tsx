@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
 import { RootState } from "../../../redux/store/store";
 
@@ -46,67 +46,69 @@ const Navbar: FC = () => {
           } flex-grow lg:flex lg:items-center lg:w-auto`}
         >
           <div className="text-sm mx-3 lg:flex-grow">
-            <Link
+            <NavLink
               to="/"
               onClick={() => setShowItem(false)}
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/bd-places"
               onClick={() => setShowItem(false)}
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
             >
               Bangladesh Tour
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/wd-places"
               onClick={() => setShowItem(false)}
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
             >
               World Tour
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/vegetables"
               onClick={() => setShowItem(false)}
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
             >
               Kacha Bazar
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/bikes"
               onClick={() => setShowItem(false)}
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
             >
               Bike Bazar
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/electronics"
               onClick={() => setShowItem(false)}
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
             >
               Electronics
-            </Link>
-            <Link
-              to="about"
+            </NavLink>
+            <NavLink
+              to="/about"
               onClick={() => setShowItem(false)}
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
             >
               About
-            </Link>
+            </NavLink>
           </div>
           <div className="lg:flex mx-3 mt-4 lg:mt-0">
-            <Link
-              to="/dashboard"
-              className="block lg:inline-block text-white text-xl font-bold lg:mx-2 my-3 lg:my-0"
-              onClick={() => setShowItem(false)}
-            >
-              <i className="fas fa-user inline-block lg:mx-3 bg-blue-500 p-3 rounded-full"></i>
-              <span className="text-white">Dashboard</span>
-            </Link>
+            {user.email && (
+              <NavLink
+                to="/dashboard"
+                className="block lg:inline-block text-white text-xl font-bold lg:mx-2 my-3 lg:my-0"
+                onClick={() => setShowItem(false)}
+              >
+                <i className="fas fa-user inline-block lg:mx-3 bg-blue-500 p-3 rounded-full"></i>
+                <span className="text-white">Dashboard</span>
+              </NavLink>
+            )}
             <div className="text-white">
-              <Link
+              <NavLink
                 to="/cart"
                 className="block lg:inline-block"
                 onClick={() => setShowItem(false)}
@@ -115,7 +117,7 @@ const Navbar: FC = () => {
                 <span className="bg-red-700 rounded-full inline-block p-2 text-white">
                   {cartItem.length}
                 </span>
-              </Link>
+              </NavLink>
             </div>
             {user.email ? (
               <button
@@ -125,13 +127,13 @@ const Navbar: FC = () => {
                 Logout
               </button>
             ) : (
-              <Link
+              <NavLink
                 to="/login"
                 onClick={() => setShowItem(false)}
                 className="inline-block mx-2 text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
               >
                 Login
-              </Link>
+              </NavLink>
             )}
           </div>
         </div>

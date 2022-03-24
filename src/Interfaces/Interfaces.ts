@@ -80,3 +80,24 @@ export interface BookedService {
   status: string;
   payment_status: string;
 }
+
+export interface Orders {
+  _id: string;
+  name: string;
+  email: string;
+  address: string;
+  phone: string;
+  user_id: string;
+  payment_status: string;
+  status: string;
+  orders: Order[];
+  order_id: number;
+}
+
+export interface Order {
+  id: string;
+  d: string;
+  c: string;
+  quantity: number;
+  price: string;
+}

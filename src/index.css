@@ -22,3 +22,10 @@ code {
   width: 95%;
   margin: auto;
 }
+.active {
+  font-weight: bold;
+  color: gainsboro;
+}
+.custom-about-grid {
+  grid-template-columns: 1fr 2fr;
+}

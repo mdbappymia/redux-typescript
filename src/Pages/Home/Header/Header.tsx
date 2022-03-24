@@ -51,7 +51,7 @@ const Header = () => {
               alt="..."
             />
             <div className="carousel-caption hidden md:block absolute text-center">
-              <h5 className="text-5xl uppercase my-5">
+              <h5 className="text-4xl uppercase my-5">
                 To the world of an incredible vacation.
               </h5>
               <p>
@@ -66,7 +66,7 @@ const Header = () => {
               alt="..."
             />
             <div className="carousel-caption hidden md:block absolute text-center">
-              <h5 className="text-5xl uppercase my-5">
+              <h5 className="text-4xl uppercase my-5">
                 We make dreams come true!
               </h5>
               <p>

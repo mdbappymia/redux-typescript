@@ -21,6 +21,9 @@ const BookedServices = () => {
         booked
       </h1>
       <div className="booking-container">
+        {bookingService.length === 0 && (
+          <h1 className="text-center my-4 text-md">Booking Service is empty</h1>
+        )}
         {bookingService.map((booking) => (
           <SingleBookedService key={booking._id} booking={booking} />
         ))}

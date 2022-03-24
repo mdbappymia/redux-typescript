@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -6,11 +6,12 @@ import { calculateTotal } from "../../assets/calculate";
 import { clearCart } from "../../redux/slices/shopSlice";
 import { RootState } from "../../redux/store/store";
 
-const Checkout = () => {
+const Checkout: FC = () => {
   const user = useSelector((state: RootState) => state.users.user);
   const cartItems = useSelector((state: RootState) => state.shop.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  document.title = "Checkout";
   const {
     register,
     handleSubmit,
@@ -58,7 +59,6 @@ const Checkout = () => {
       </h1>
       <div>
         <form className="mx-auto lg:w-2/3" onSubmit={handleSubmit(onSubmit)}>
-          {/* register your input into the hook by invoking the "register" function */}
           <label htmlFor="">Name:</label>
           <input
             className="w-full disabled:bg-gray-100 disabled:border-gray-400 border mb-5 py-2 px-1 text-md border-black rounded"
@@ -83,11 +83,10 @@ const Checkout = () => {
             className="w-full border mb-5 py-2 px-1 text-md border-black rounded"
             {...register("phone", { required: true })}
           />
-          {/* errors will return when field validation fails  */}
           {errors.exampleRequired && <span>This field is required</span>}
 
           <input
-            className="bg-indigo-700 text-white font-bold px-3 py-2 rounded"
+            className="bg-indigo-700 text-white font-bold px-3 py-2 rounded cursor-pointer hover:bg-indigo-800"
             type="submit"
           />
         </form>

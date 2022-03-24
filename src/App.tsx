@@ -24,6 +24,7 @@ import DashboardRoot from "./Pages/Dashboard/DashboardRoot/DashboardRoot";
 import BookedServices from "./Pages/Dashboard/BookedServices/BookedServices";
 import Orders from "./Pages/Dashboard/Orders/Orders";
 import Checkout from "./Pages/Checkout/Checkout";
+import About from "./Pages/About/About";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,7 +55,14 @@ function App() {
               </PrivetRoute>
             }
           />
-          <Route path="/dashboard" element={<DashboardRoot />}>
+          <Route
+            path="/dashboard"
+            element={
+              <PrivetRoute>
+                <DashboardRoot />
+              </PrivetRoute>
+            }
+          >
             <Route index={true} element={<BookedServices />} />
             <Route path="orders" element={<Orders />} />
           </Route>
@@ -66,6 +74,7 @@ function App() {
               </PrivetRoute>
             }
           />
+          <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
