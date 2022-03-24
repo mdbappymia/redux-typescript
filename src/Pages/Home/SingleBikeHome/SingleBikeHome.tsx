@@ -16,10 +16,10 @@ const SingleBikeHome: FC<Iprops> = ({ bike }) => {
   const cartItems = useSelector((state: RootState) => state.shop.cart);
   return (
     <div>
-      <div className="rounded overflow-hidden shadow-lg">
+      <div className="rounded overflow-hidden shadow-lg hover:scale-105 transition-all bg-white">
         <img className="w-full h-56" src={img} alt={bike.name + " Image"} />
         <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">{name}</div>
+          <div className="font-bold text-xl mb-2 text-gray-700">{name}</div>
           <p className="text-gray-700 text-base">{description.slice(0, 100)}</p>
         </div>
         <div className="px-6 pt-4 pb-2 flex justify-between">

@@ -50,7 +50,7 @@ const KachaBazarModal: FC<IProps> = ({
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed h-72 overflow-y-auto">
                     {vegetable.productDescription}
                   </p>
                 </div>

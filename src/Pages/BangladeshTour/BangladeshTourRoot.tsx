@@ -21,8 +21,8 @@ const BangladeshTourRoot = () => {
     setDisplayPlace(searchPlace);
   };
   return (
-    <div className="container mx-auto">
-      <h1 className="text-center text-5xl font-bold bg-gray-300 uppercase my-5 py-5">
+    <div className="container mx-auto my-10">
+      <h1 className="text-center text-5xl font-bold bg-gray-400 uppercase my-5 py-5">
         Bangladesh tour
       </h1>
       <div className="text-center my-5">
@@ -33,7 +33,7 @@ const BangladeshTourRoot = () => {
           onChange={handleSearch}
         />
       </div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
         {displayPlace.map((place: BangladeshPlace) => (
           <SingleBangladeshPlaceHome key={place._id} place={place} />
         ))}

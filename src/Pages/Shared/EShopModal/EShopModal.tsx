@@ -55,7 +55,7 @@ const EShopModal: FC<IProps> = ({ showModal, setShowModal, product }) => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed h-72 overflow-y-auto">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
                     optio voluptates temporibus illum eligendi commodi nulla vel
                     minus in, quaerat quae cupiditate quod alias excepturi

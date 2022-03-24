@@ -19,10 +19,11 @@ const KachaBazarHome: FC = () => {
       </div>
       <Link
         to="/vegetables"
-        className="text-blue-700 my-10 inline-block text-3xl hover:text-blue-900 hover:underline"
+        className="text-blue-700 my-10 inline-block text-xl hover:text-blue-500 hover:underline"
       >
         View More ...
       </Link>
+      <hr />
     </div>
   );
 };

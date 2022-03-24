@@ -42,7 +42,7 @@ const WorldTourModal: FC<IProps> = ({ showModal, setShowModal, place }) => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed h-72 overflow-y-auto">
                     {place.description}
                   </p>
                 </div>

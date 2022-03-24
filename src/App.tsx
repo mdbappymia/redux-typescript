@@ -19,6 +19,11 @@ import BikeBazar from "./Pages/BikeBazar/BikeBazar";
 import Electronics from "./Pages/Electronics/Electronics";
 import CartRoot from "./Pages/Cart/CartRoot/CartRoot";
 import PlaceDetails from "./Pages/PlaceDetails/PlaceDetails";
+import PrivetRoute from "./auth/PrivetRoute/PrivetRoute";
+import DashboardRoot from "./Pages/Dashboard/DashboardRoot/DashboardRoot";
+import BookedServices from "./Pages/Dashboard/BookedServices/BookedServices";
+import Orders from "./Pages/Dashboard/Orders/Orders";
+import Checkout from "./Pages/Checkout/Checkout";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +46,26 @@ function App() {
           <Route path="/bikes" element={<BikeBazar />} />
           <Route path="/electronics" element={<Electronics />} />
           <Route path="/cart" element={<CartRoot />} />
-          <Route path="/placeDetails/:id" element={<PlaceDetails />} />
+          <Route
+            path="/placeDetails/:id"
+            element={
+              <PrivetRoute>
+                <PlaceDetails />
+              </PrivetRoute>
+            }
+          />
+          <Route path="/dashboard" element={<DashboardRoot />}>
+            <Route index={true} element={<BookedServices />} />
+            <Route path="orders" element={<Orders />} />
+          </Route>
+          <Route
+            path="/checkout"
+            element={
+              <PrivetRoute>
+                <Checkout />
+              </PrivetRoute>
+            }
+          />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>

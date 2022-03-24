@@ -64,3 +64,19 @@ export interface ProductCart {
   quantity: number;
   price: string;
 }
+
+export interface BookedService {
+  _id: string;
+  name: string;
+  email: string;
+  date: string;
+  address: string;
+  phone: string;
+  order_id: string;
+  user_id: string;
+  pack: string;
+  d: string;
+  c: string;
+  status: string;
+  payment_status: string;
+}

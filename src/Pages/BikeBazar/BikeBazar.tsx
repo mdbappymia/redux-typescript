@@ -21,7 +21,7 @@ const BikeBazar = () => {
     setDisplayBikes(searchPlace);
   };
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto my-10">
       <h1 className="text-center text-5xl font-bold uppercase my-5 py-6 bg-gray-400">
         bikes
       </h1>
@@ -33,7 +33,7 @@ const BikeBazar = () => {
           onChange={(e) => handleSearch(e.target.value)}
         />
       </div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
         {displayBikes.map((bike: Bike) => (
           <SingleBikeHome bike={bike} />
         ))}

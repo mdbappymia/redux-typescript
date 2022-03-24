@@ -11,20 +11,21 @@ const ElectronicsShopHome: FC = () => {
   const displayProducts = products.slice(0, 4);
   return (
     <div className="py-10 container mx-auto">
-      <h1 className="text-center font-bold text-5xl my-5 uppercase">
+      <h1 className="text-center font-bold text-5xl my-5 uppercase border-b py-5">
         Eletronics Shop
       </h1>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5">
         {displayProducts.map((product: EProducts) => (
-          <SingleEShopHome product={product} />
+          <SingleEShopHome key={product._id} product={product} />
         ))}
       </div>
       <Link
         to="/electronics"
-        className="text-blue-700 my-10 inline-block text-3xl hover:text-blue-900 hover:underline"
+        className="text-blue-700 my-10 inline-block text-xl hover:text-blue-500 hover:underline"
       >
         View More ...
       </Link>
+      <hr />
     </div>
   );
 };

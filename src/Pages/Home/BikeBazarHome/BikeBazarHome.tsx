@@ -9,7 +9,7 @@ const BikeBazarHome: FC = () => {
   const displayItem = bikes.slice(0, 4);
   return (
     <div className="container mx-auto py-10">
-      <h1 className="text-center font-bold text-5xl uppercase my-5 ">
+      <h1 className="text-center font-bold text-5xl uppercase my-5 border-b py-5">
         bike bazar
       </h1>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5">
@@ -19,10 +19,11 @@ const BikeBazarHome: FC = () => {
       </div>
       <Link
         to="/bikes"
-        className="text-blue-700 my-10 inline-block text-3xl hover:text-blue-900 hover:underline"
+        className="text-blue-700 my-10 inline-block text-xl hover:text-blue-500 hover:underline"
       >
         View More ...
       </Link>
+      <hr />
     </div>
   );
 };

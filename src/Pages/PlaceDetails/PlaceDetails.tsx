@@ -21,7 +21,6 @@ const PlaceDetails: FC = () => {
         setDisplayPlace(data);
       });
   }, []);
-  console.log(pack);
   const {
     register,
     handleSubmit,
@@ -41,6 +40,7 @@ const PlaceDetails: FC = () => {
         d: newData[1],
         c: newData[2],
         status: "pending",
+        payment_status: "Unpaid",
       };
       fetch("http://localhost:5000/booked_place", {
         method: "POST",
@@ -60,18 +60,19 @@ const PlaceDetails: FC = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto my-10">
       <h1 className="text-center font-bold text-5xl uppercase py-5 my-5 bg-gray-300">
         Booked Your Favourite place
       </h1>
-      <div className="flex justify-between">
-        <div>
-          <img src={displayPlace.img} alt="" />
+      <div className="lg:flex justify-between">
+        <div className="lg:w-1/2">
+          <img className="h-80 w-full" src={displayPlace.img} alt="" />
           <h1>{displayPlace.name}</h1>
           <h1>Location: {displayPlace.location}</h1>
           <h1>Price: {totalPrice} $</h1>
+          <h1>About: {displayPlace.description}</h1>
         </div>
-        <div className="w-1/2 my-10">
+        <div className="lg:w-1/2 my-10">
           <h1 className="uppercase font-bold text-3xl text-center">
             Enter your info
           </h1>

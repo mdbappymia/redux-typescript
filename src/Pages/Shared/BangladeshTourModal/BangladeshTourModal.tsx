@@ -43,7 +43,7 @@ const BangladeshTourModal: FC<IProps> = ({
                   <h1>Location: {place.location}</h1>
                 </div>
                 {/*body*/}
-                <div className="relative p-6 flex-auto">
+                <div className="relative p-6 flex-auto h-72 overflow-y-auto">
                   <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
                     {place.description}
                   </p>

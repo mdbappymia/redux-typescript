@@ -78,6 +78,10 @@ const shopSlice = createSlice({
       localStorage.setItem("eShopCart", JSON.stringify(updateCart));
       state.cart = updateCart;
     },
+    clearCart: (state) => {
+      state.cart = [];
+      localStorage.removeItem("eShopCart");
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -93,7 +97,12 @@ const shopSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, increaseItem, decreaseItem } =
-  shopSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  increaseItem,
+  decreaseItem,
+  clearCart,
+} = shopSlice.actions;
 
 export default shopSlice.reducer;
